@@ -13,7 +13,7 @@ public class Checkout {
 
     @Id
     private Long id;
-    private Long orderId;
+//    private Long orderId;
     private String firstName;
     private String lastName;
     private String country;

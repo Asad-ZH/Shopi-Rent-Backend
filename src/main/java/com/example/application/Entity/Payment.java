@@ -14,7 +14,7 @@ public class Payment {
     private Long id;
 
     private String paymentType;
-    private Long orderId;
+//    private Long orderId;
     private Integer phoneNumber;
     private Integer productPrice;
 

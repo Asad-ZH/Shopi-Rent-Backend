@@ -15,7 +15,7 @@ public class Cart {
 
     @Id
     private Long id;
-    private Long productId;
-    private Long buyerId;
+//    private Long productId;
+//    private Long buyerId;
     private Integer price;
 }

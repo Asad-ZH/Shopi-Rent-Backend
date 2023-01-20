@@ -3,11 +3,9 @@ package com.example.application.Entity;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -16,22 +14,28 @@ public class Product {
 
     @Id
     private Long id;
-    private Long sellerId;
+//    private Long sellerId;
     private String title;
     private String description;
     private String imageURL;
     private String category;
     private String subCategory;
-    @Column(name = "colors", columnDefinition = "text[]")
-    @Type(type = "text[]")
-    private String[] colors;
-    @Column(name = "size", columnDefinition = "text[]")
-    @Type(type = "text[]")
-    private String[] size;
+
+    @ElementCollection
+    @CollectionTable(name = "Product_colors", joinColumns = @JoinColumn(name = "Product_colors_id"))
+    @Column(name = "colors")
+    private List<String> colors;
+
+    @ElementCollection
+    @CollectionTable(name = "Product_size", joinColumns = @JoinColumn(name = "Product_size_id"))
+    @Column(name = "size")
+    private List<String> size;
     private String brand;
-    @Column(name = "highlights", columnDefinition = "text[]")
-    @Type(type = "text[]")
-    private String[] highlights;
+
+    @ElementCollection
+    @CollectionTable(name = "Product_highlights", joinColumns = @JoinColumn(name = "Product_highlights_id"))
+    @Column(name = "highlights")
+    private List<String> highlights;
     private String weather;
     private String sleeves;
     private String bodyType;

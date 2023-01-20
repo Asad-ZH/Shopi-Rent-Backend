@@ -14,8 +14,8 @@ public class OrderDetails {
     @Id
     private Long id;
 
-    private Long orderId;
-    private Long productId;
+//    private Long orderId;
+//    private Long productId;
     private Integer quantity;
     private double price;
 

@@ -14,6 +14,6 @@ public class Favourites {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
-    private Long productId;
-    private Long buyerId;
+//    private Long productId;
+//    private Long buyerId;
 }
