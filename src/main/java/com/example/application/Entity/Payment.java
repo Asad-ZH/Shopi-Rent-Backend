@@ -2,9 +2,7 @@ package com.example.application.Entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -13,8 +11,20 @@ public class Payment {
     @Id
     private Long id;
 
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "checkout_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "checkout_id_fk"
+            )
+    )
+    private Checkout checkout;
+
     private String paymentType;
-//    private Long orderId;
     private Integer phoneNumber;
     private Integer productPrice;
 
